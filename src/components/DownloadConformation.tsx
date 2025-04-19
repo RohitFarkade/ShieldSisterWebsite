@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Check, Download, RefreshCw } from 'lucide-react';
+import { Check, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const DownloadConfirmation: React.FC = () => {

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -32,14 +33,13 @@ const AppScreenshots: React.FC = () => {
   };
 
   return (
-    <section id="screenshots" className="py-16 md:py-24 bg-white">
+    <section id="screenshots" className="py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <span className="bg-purple-100 text-purple-700 rounded-full px-4 py-1 text-sm font-semibold">APP PREVIEW</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-gray-800">See Shield Sister in action</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Our intuitive interface makes safety features accessible with just a few taps.
-            Designed for speed and ease of use, especially in emergency situations.
+          <h2 className="text-4xl font-extrabold mt-4 mb-6 text-gray-800 tracking-tight">See Shield Sister in Action</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Our intuitive interface makes safety features accessible with just a few taps. Designed for speed and ease of use, especially in emergencies.
           </p>
         </div>
 
@@ -51,14 +51,14 @@ const AppScreenshots: React.FC = () => {
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
               {screenshots.map((screenshot, index) => (
-                <div key={index} className="min-w-full" style={{ aspectRatio: '9/16' }}>
+                <div key={index} className="min-w-full relative" style={{ aspectRatio: '9/16' }}>
                   <img
                     src={screenshot.image}
                     alt={`App Screenshot ${index + 1}`}
                     className="w-full h-full object-cover rounded-2xl"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 rounded-b-2xl">
-                    <p className="text-white text-lg font-semibold">{screenshot.caption}</p>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-2xl">
+                    <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
                   </div>
                 </div>
               ))}
@@ -86,8 +86,8 @@ const AppScreenshots: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === current ? 'bg-purple-600' : 'bg-gray-300'
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  index === current ? 'bg-purple-600 scale-110' : 'bg-gray-300'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -96,9 +96,9 @@ const AppScreenshots: React.FC = () => {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-3 gap-8">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
           {screenshots.map((screenshot, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2">
+            <div key={index} className="group relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:-translate-y-2">
               <div style={{ aspectRatio: '9/16' }}>
                 <img
                   src={screenshot.image}
@@ -106,9 +106,9 @@ const AppScreenshots: React.FC = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-lg font-semibold">{screenshot.caption}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
               </div>
             </div>
           ))}
