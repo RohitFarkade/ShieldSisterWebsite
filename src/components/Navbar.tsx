@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
             <a href="#about" className="hover:text-pink-400 transition-colors">About</a>
             <a href="#contact" className="hover:text-pink-400 transition-colors">Contact</a>
             <a
-              href="#"
+              href="\apks\ShieldSister.apk"
               className={`${
                 isScrolled 
                   ? 'bg-purple-600 hover:bg-purple-700 text-white' 
