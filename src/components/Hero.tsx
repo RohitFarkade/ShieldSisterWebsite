@@ -1,7 +1,13 @@
 import React from 'react';
 import { Download, Shield } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleDownload = () => {
+    navigate('/download-confirmation');
+  };
   return (
     <section className="bg-gradient-to-br from-purple-700 to-indigo-900 text-white min-h-[90vh] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center opacity-10"></div>
@@ -24,8 +30,10 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
-            <button className="bg-pink-500 hover:bg-pink-600 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center">
-              <Download className="w-5 h-5 mr-2" /><a href="\assets\apks\ShieldSister.apk" download="ShieldSister.apk">
+            <button
+             onClick={handleDownload}
+             className="bg-pink-500 hover:bg-pink-600 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center">
+              <Download className="w-5 h-5 mr-2" /><a href="\apks\ShieldSister.apk" download="ShieldSister.apk">
               Download App</a>
             </button>
             <button className="bg-transparent border-2 border-white hover:bg-white/10 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full">
