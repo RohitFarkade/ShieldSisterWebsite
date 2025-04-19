@@ -36,7 +36,9 @@ const Hero: React.FC = () => {
               <Download className="w-5 h-5 mr-2" /><a href="\apks\ShieldSister.apk" download="ShieldSister.apk">
               Download App</a>
             </button>
-            <button className="bg-transparent border-2 border-white hover:bg-white/10 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full">
+            <button 
+            onClick={() => window.open('#about', '_self')}
+            className="bg-transparent border-2 border-white hover:bg-white/10 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full">
               Learn More
             </button>
           </div>
