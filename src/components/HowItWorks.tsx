@@ -82,7 +82,7 @@ const HowItWorks: React.FC = () => {
           <div className="relative overflow-hidden pb-[56.25%] h-0 rounded-xl shadow-lg">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/hPjPEBDCcKQ
+              src="https://www.youtube.com/embed/o0QzdFxQAl0
 ?autoplay=0&controls=1&rel=0&showinfo=0"
               title="How to Register & Use Shield Sister"
               frameBorder="0"
