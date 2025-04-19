@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     navigate('/download-confirmation');
   };
   return (
-    <section className="bg-gradient-to-br from-purple-700 to-indigo-900 text-white min-h-[90vh] relative overflow-hidden">
+    <section className="bg-gradient-to-br from-purple-700 to-indigo-900 text-white min-h-[90vh] relative overflow-hidden flex items-center">
       <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center opacity-10"></div>
 
       <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
