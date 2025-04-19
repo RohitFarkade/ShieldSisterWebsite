@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
           <div className="relative w-[280px] md:w-[320px]">
             <div className="absolute inset-0 bg-gradient-to-br from-pink-400/30 to-purple-600/30 rounded-[40px] blur-xl"></div>
             <img
-              src="dist/assests/Homepage.jpg"
+              src="/public/assets/images/Homepage.jpg"
               alt="Shield Sister App"
               className="relative z-10 rounded-[32px] shadow-2xl border-8 border-gray-800 object-cover h-[580px]"
             />
