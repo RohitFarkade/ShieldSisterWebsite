@@ -92,6 +92,10 @@ const Footer: React.FC = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 mb-2">
+            Made with <span className="text-pink-400">❤️</span> by the Shield Sister Team
+          </p>
+          <p className="text-gray-500 text-sm mb-2">
+            Join us in our mission to
             Empowering women with technology, one shield at a time.
           </p>
           <p className="text-gray-500 text-sm">
