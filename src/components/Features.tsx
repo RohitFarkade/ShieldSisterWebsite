@@ -36,8 +36,8 @@ const Features: React.FC = () => {
     },
     {
       icon: <Star className="w-7 h-7 text-white" />,
-      title: "Safe Area Scores",
-      description: "Get safety ratings for areas and routes before you travel, with real-time community updates.",
+      title: "Safe Area Zones",
+      description: "Get safety zones for areas and routes before you travel, with real-time community updates.",
       accentColor: "bg-purple-500"
     },
     {
