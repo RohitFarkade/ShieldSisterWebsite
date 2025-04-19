@@ -25,30 +25,12 @@ const Hero: React.FC = () => {
 
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
             <button className="bg-pink-500 hover:bg-pink-600 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center">
-              <Download className="w-5 h-5 mr-2" />
-              Download App
+              <Download className="w-5 h-5 mr-2" /><a href="\assets\apks\ShieldSister.apk" download="ShieldSister.apk">
+              Download App</a>
             </button>
             <button className="bg-transparent border-2 border-white hover:bg-white/10 transition-colors duration-300 text-white font-semibold py-3 px-6 rounded-full">
               Learn More
             </button>
-          </div>
-
-          <div className="pt-6">
-            <p className="text-sm text-gray-300">
-              Available on iOS and Android
-            </p>
-            <div className="flex gap-4 mt-2">
-              <img
-                src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg"
-                alt="App Store"
-                className="h-10 hover:opacity-80 transition-opacity cursor-pointer"
-              />
-              <img
-                src="https://cdn.worldvectorlogo.com/logos/google-play-badge.svg"
-                alt="Google Play"
-                className="h-10 hover:opacity-80 transition-opacity cursor-pointer"
-              />
-            </div>
           </div>
         </div>
 
@@ -56,7 +38,7 @@ const Hero: React.FC = () => {
           <div className="relative w-[280px] md:w-[320px]">
             <div className="absolute inset-0 bg-gradient-to-br from-pink-400/30 to-purple-600/30 rounded-[40px] blur-xl"></div>
             <img
-              src="/public/assets/images/Homepage.jpg"
+              src="/assets/images/Homepage.jpg"
               alt="Shield Sister App"
               className="relative z-10 rounded-[32px] shadow-2xl border-8 border-gray-800 object-cover h-[580px]"
             />
