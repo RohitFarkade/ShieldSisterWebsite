@@ -1,12 +1,19 @@
 
 import React from 'react';
 import { Send } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
           <div className="text-center mb-10">
             <span className="bg-purple-100 text-purple-700 rounded-full px-4 py-1 text-sm font-semibold">
               CONTACT US
@@ -20,13 +27,18 @@ const Contact: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-xl p-8"
+          >
             <form
               action="https://formsubmit.co/shieldsister.app@gmail.com"
               method="POST"
               className="space-y-6"
             >
-              {/* FormSubmit hidden inputs */}
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_subject" value="New Feedback from Shield Sister" />
 
@@ -72,16 +84,18 @@ const Contact: React.FC = () => {
                 ></textarea>
               </div>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center shadow-md"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
