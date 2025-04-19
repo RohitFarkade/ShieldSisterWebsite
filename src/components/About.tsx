@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Shield, MapPin, AlertCircle, User } from 'lucide-react';
 
@@ -17,9 +18,9 @@ const About: React.FC = () => {
               that combines cutting-edge technology with practical safety features.
             </p>
             <p className="text-gray-600 mb-6">
-              Built with Flutter and Firebase, Shield Sister utilizes real-time data to keep users informed 
-              and protected. Our system helps prevent crimes using live location sharing, safety zone mapping, 
-              and instant emergency response capabilities.
+              Currently in development, Shield Sister is being built with Flutter and Firebase to ensure a seamless 
+              and secure experience. Our goal is to provide real-time safety updates, emergency alerts, and location sharing — 
+              all in one easy-to-use app.
             </p>
             
             <div className="grid grid-cols-2 gap-4 mt-8">
@@ -62,33 +63,33 @@ const About: React.FC = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-purple-100 rounded-full -mr-12 -mt-12"></div>
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Impact</h3>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Vision</h3>
                 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div>
-                    <p className="text-3xl font-bold text-pink-500">50K+</p>
-                    <p className="text-gray-600">Active Users</p>
+                    <p className="text-3xl font-bold text-pink-500">Launching Soon</p>
+                    <p className="text-gray-600">Be one of the first users</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-purple-600">100+</p>
-                    <p className="text-gray-600">Cities Covered</p>
+                    <p className="text-3xl font-bold text-purple-600">Safety First</p>
+                    <p className="text-gray-600">Designed for real-world security</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-pink-500">1000+</p>
-                    <p className="text-gray-600">Emergency Alerts</p>
+                    <p className="text-3xl font-bold text-pink-500">Community Focused</p>
+                    <p className="text-gray-600">Built with your feedback</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-purple-600">4.8/5</p>
-                    <p className="text-gray-600">User Rating</p>
+                    <p className="text-3xl font-bold text-purple-600">Peace of Mind</p>
+                    <p className="text-gray-600">Anytime, anywhere</p>
                   </div>
                 </div>
                 
                 <div className="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-500">
                   <p className="italic text-gray-700">
-                    "Shield Sister gave me the confidence to walk home at night after late shifts. 
-                    It's not just an app, it's peace of mind."
+                    "We're building Shield Sister to give every woman the confidence to move freely, safely, and independently. 
+                    It's not just tech — it's our promise."
                   </p>
-                  <p className="text-sm font-semibold mt-2">— Sarah, Nurse</p>
+                  <p className="text-sm font-semibold mt-2">— The Shield Sister Team</p>
                 </div>
               </div>
             </div>
