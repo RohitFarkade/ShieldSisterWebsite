@@ -24,7 +24,7 @@ const developers = [
   {
     name: "Gaznavi Shaikh",
     email: "gaznavisheikh01@gmail.com",
-    github: "https://github.com/dev4",
+    github: "https://github.com/Gaznavi-Sheikh",
     avatar: "avatars/gaznavi_profile.jpg", // Placeholder
   },
   {
