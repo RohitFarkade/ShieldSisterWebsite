@@ -1,6 +1,10 @@
 
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const screenshots = [
   {
@@ -16,22 +20,32 @@ const screenshots = [
     caption: "Area Safety Zones and Route Planning"
   },
   {
-    image: "/assets/images/Manual.jpg",
-    caption: "User Manual and Safety Tips"
-  }
+    image: "/assets/images/contact.png",
+    caption: "Trusted Contacts and Emergency Alerts"
+  },
+  {
+    image: "/assets/images/Login.jpg",
+    caption: "User-Friendly Login and Registration"
+  },
+  {
+    image: "/assets/images/registraion.jpg",
+    caption: "Registration Screen with Easy Setup"
+  },
+  {
+    image: "/assets/images/Friends.jpg",
+    caption: "Friend List and Location Sharing"
+  },
+  {
+    image: "/assets/images/profile.png",
+    caption: "User Profile and Settings"
+  },
+  {
+    image: "/assets/images/soslaert.png",
+    caption: "SOS Alert Screen with Location Sharing"
+  },
 ];
 
 const AppScreenshots: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => {
-    setCurrent(current === screenshots.length - 1 ? 0 : current + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? screenshots.length - 1 : current - 1);
-  };
-
   return (
     <section id="screenshots" className="py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-white">
       <div className="container mx-auto px-4">
@@ -43,76 +57,54 @@ const AppScreenshots: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="relative md:hidden">
-          <div className="overflow-hidden rounded-2xl shadow-xl">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${current * 100}%)` }}
-            >
-              {screenshots.map((screenshot, index) => (
-                <div key={index} className="min-w-full relative" style={{ aspectRatio: '9/16' }}>
-                  <img
-                    src={screenshot.image}
-                    alt={`App Screenshot ${index + 1}`}
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-2xl">
-                    <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button
-            onClick={prevSlide}
-            className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md z-10"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-800" />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md z-10"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-800" />
-          </button>
-
-          <div className="flex justify-center mt-4 gap-2">
-            {screenshots.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === current ? 'bg-purple-600 scale-110' : 'bg-gray-300'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000 }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="rounded-2xl"
+        >
           {screenshots.map((screenshot, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:-translate-y-2">
-              <div style={{ aspectRatio: '9/16' }}>
+            // <SwiperSlide key={index}>
+            //   <div className="group relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:-translate-y-2">
+            //     <div style={{ aspectRatio: '9/20' }}>
+            //       <img
+            //         src={screenshot.image}
+            //         alt={`App Screenshot ${index + 1}`}
+            //         className="w-full h-full object-cover"
+            //       />
+            //     </div>
+            //     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            //     <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            //       <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
+            //     </div>
+            //   </div>
+            // </SwiperSlide>
+            <SwiperSlide>
+              <div className="mx-auto w-[240] md:w-[280]" style={{ aspectRatio: '9/20' }}>
                 <img
                   src={screenshot.image}
                   alt={`App Screenshot ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
-              </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
