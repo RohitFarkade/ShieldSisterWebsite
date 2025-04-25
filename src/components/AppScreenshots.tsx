@@ -1,10 +1,10 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { motion } from 'framer-motion';
 
 const screenshots = [
   {
@@ -45,6 +45,148 @@ const screenshots = [
   },
 ];
 
+// CSS 3D Phone Component
+const Phone3D = ({ screenshot }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <motion.div 
+      className="relative mx-auto"
+      style={{ 
+        width: '280px', 
+        height: '580px',
+        perspective: '1000px',
+        transformStyle: 'preserve-3d'
+      }}
+      initial={{ rotateY: 0 }}
+      animate={{ 
+        rotateY: isHovered ? 15 : 0,
+        rotateX: isHovered ? -5 : 0
+      }}
+      transition={{ type: "spring", stiffness: 100 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Phone frame */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-[40px] shadow-xl"
+        style={{ 
+          transformStyle: 'preserve-3d',
+          boxShadow: isHovered ? 
+            '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.1)' : 
+            '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
+        }}
+      >
+        {/* Phone screen */}
+        <div 
+          className="absolute overflow-hidden bg-white"
+          style={{
+            top: '12px',
+            left: '12px',
+            right: '12px',
+            bottom: '12px',
+            borderRadius: '32px',
+            transformStyle: 'preserve-3d',
+            transform: 'translateZ(2px)'
+          }}
+        >
+          <img 
+            src={screenshot.image} 
+            alt={screenshot.caption}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Home button */}
+        <div 
+          className="absolute bg-gray-500 rounded-full"
+          style={{
+            width: '60px',
+            height: '4px',
+            bottom: '12px',
+            left: '50%',
+            transform: 'translateX(-50%) translateZ(3px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+        
+        {/* Camera */}
+        <div 
+          className="absolute bg-gray-900 rounded-full"
+          style={{
+            width: '12px',
+            height: '12px',
+            top: '24px',
+            left: '50%',
+            transform: 'translateX(-50%) translateZ(3px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+        
+        {/* Side buttons */}
+        <div 
+          className="absolute bg-gray-700 rounded-l-lg"
+          style={{
+            width: '3px',
+            height: '30px',
+            top: '120px',
+            left: '-2px',
+            transform: 'translateZ(0px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+        
+        <div 
+          className="absolute bg-gray-700 rounded-l-lg"
+          style={{
+            width: '3px',
+            height: '60px',
+            top: '170px',
+            left: '-2px',
+            transform: 'translateZ(0px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+        
+        <div 
+          className="absolute bg-gray-700 rounded-r-lg"
+          style={{
+            width: '3px',
+            height: '40px',
+            top: '140px',
+            right: '-2px',
+            transform: 'translateZ(0px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+        
+        {/* Reflections */}
+        <div 
+          className="absolute inset-0 rounded-[40px] pointer-events-none"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.05) 100%)',
+            transform: 'translateZ(3px)',
+            transformStyle: 'preserve-3d'
+          }}
+        ></div>
+      </div>
+      
+      {/* Phone shadow */}
+      <div 
+        className="absolute rounded-full bg-black/20 blur-xl"
+        style={{
+          width: '80%',
+          height: '20px',
+          bottom: '-30px',
+          left: '10%',
+          transform: isHovered ? 'translateY(10px) scaleX(1.2)' : 'translateY(0) scaleX(1)',
+          transition: 'transform 0.3s ease-out'
+        }}
+      ></div>
+    </motion.div>
+  );
+};
+
 const AppScreenshots: React.FC = () => {
   return (
     <section id="screenshots" className="py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-white">
@@ -59,12 +201,12 @@ const AppScreenshots: React.FC = () => {
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
+          spaceBetween={50}
           slidesPerView={1}
           loop
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 4000 }}
+          autoplay={{ delay: 5000 }}
           breakpoints={{
             640: {
               slidesPerView: 1,
@@ -76,31 +218,20 @@ const AppScreenshots: React.FC = () => {
               slidesPerView: 3,
             },
           }}
-          className="rounded-2xl"
+          className="rounded-2xl py-10"
         >
           {screenshots.map((screenshot, index) => (
-            // <SwiperSlide key={index}>
-            //   <div className="group relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:-translate-y-2">
-            //     <div style={{ aspectRatio: '9/20' }}>
-            //       <img
-            //         src={screenshot.image}
-            //         alt={`App Screenshot ${index + 1}`}
-            //         className="w-full h-full object-cover"
-            //       />
-            //     </div>
-            //     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            //     <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            //       <p className="text-white text-base font-semibold text-center">{screenshot.caption}</p>
-            //     </div>
-            //   </div>
-            // </SwiperSlide>
-            <SwiperSlide>
-              <div className="mx-auto w-[240] md:w-[280]" style={{ aspectRatio: '9/20' }}>
-                <img
-                  src={screenshot.image}
-                  alt={`App Screenshot ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl"
-                />
+            <SwiperSlide key={index}>
+              <div className="flex flex-col items-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Phone3D screenshot={screenshot} />
+                  <p className="text-center mt-6 text-gray-700 font-medium">{screenshot.caption}</p>
+                </motion.div>
               </div>
             </SwiperSlide>
           ))}
